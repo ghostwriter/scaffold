@@ -17,8 +17,8 @@ use Symfony\Component\Console\Command\Command;
  * }
  */
 return [
-    'name' => 'Wip',
-    'package' => 'ghostwriter/wip',
+    'name' => 'Scaffold',
+    'package' => 'ghostwriter/scaffold',
     'auto_exit'       => false,
     'single_command'       => false,
     'default_command'  => 'list',

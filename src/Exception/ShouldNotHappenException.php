@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ghostwriter\Wip\Exception;
+namespace Ghostwriter\Scaffold\Exception;
 
-use Ghostwriter\Wip\Interface\ExceptionInterface;
+use Ghostwriter\Scaffold\Interface\ExceptionInterface;
 use LogicException;
 
 final class ShouldNotHappenException extends LogicException implements ExceptionInterface {}

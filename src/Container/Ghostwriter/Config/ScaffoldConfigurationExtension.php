@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ghostwriter\Wip\Container\Ghostwriter\Config;
+namespace Ghostwriter\Scaffold\Container\Ghostwriter\Config;
 
 use Ghostwriter\Container\Interface\ContainerInterface;
 use Ghostwriter\Container\Interface\Service\ExtensionInterface;
-use Ghostwriter\Wip\Interface\WipConfigurationInterface;
+use Ghostwriter\Scaffold\Interface\ScaffoldConfigurationInterface;
 use Override;
 use Throwable;
 
@@ -18,21 +18,21 @@ use function implode;
 use function is_dir;
 
 /**
- * @see WipConfigurationExtensionTest
+ * @see ScaffoldConfigurationExtensionTest
  *
- * @implements ExtensionInterface<WipConfigurationInterface>
+ * @implements ExtensionInterface<ScaffoldConfigurationInterface>
  */
-final readonly class WipConfigurationExtension implements ExtensionInterface
+final readonly class ScaffoldConfigurationExtension implements ExtensionInterface
 {
     /**
-     * @param WipConfigurationInterface $service
+     * @param ScaffoldConfigurationInterface $service
      *
      * @throws Throwable
      */
     #[Override]
     public function __invoke(ContainerInterface $container, object $service): void
     {
-        assert($service instanceof WipConfigurationInterface);
+        assert($service instanceof ScaffoldConfigurationInterface);
 
         $configDirectory = implode(DIRECTORY_SEPARATOR, [dirname(__DIR__, 4), 'config']);
 

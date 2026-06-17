@@ -1,11 +1,11 @@
 {
-    "name": "ghostwriter/wip",
-    "description": "Here be dragons",
+    "name": "ghostwriter/scaffold",
+    "description": "Generate a new PHPCS sniff class, along with its unit test, fixtures and documentation files.",
     "license": "BSD-3-Clause",
     "type": "library",
     "keywords": [
         "ghostwriter",
-        "wip"
+        "scaffold"
     ],
     "authors": [
         {
@@ -15,12 +15,12 @@
             "role": "Developer"
         }
     ],
-    "homepage": "https://github.com/ghostwriter/wip",
+    "homepage": "https://github.com/ghostwriter/scaffold",
     "support": {
-        "issues": "https://github.com/ghostwriter/wip/issues",
-        "source": "https://github.com/ghostwriter/wip",
-        "rss": "https://github.com/ghostwriter/wip/releases.atom",
-        "security": "https://github.com/ghostwriter/wip/security/advisories/new"
+        "issues": "https://github.com/ghostwriter/scaffold/issues",
+        "source": "https://github.com/ghostwriter/scaffold",
+        "rss": "https://github.com/ghostwriter/scaffold/releases.atom",
+        "security": "https://github.com/ghostwriter/scaffold/security/advisories/new"
     },
     "funding": [
         {
@@ -59,7 +59,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Ghostwriter\\Wip\\": "src"
+            "Ghostwriter\\Scaffold\\": "src"
         },
         "files": [
             "src/constants.php",
@@ -76,8 +76,8 @@
         "exclude-from-classmap": ["/tests/"]
     },
     "bin": [
-        "bin/console",
-        "bin/console.php"
+        "bin/scaffold",
+        "bin/scaffold.php"
     ],
     "config": {
         "allow-plugins": {
@@ -101,12 +101,12 @@
     "extra": {
         "ghostwriter": {
             "container": {
-                "provider": ["Ghostwriter\\Wip\\Container\\WipProvider"]
+                "provider": ["Ghostwriter\\Scaffold\\Container\\ScaffoldProvider"]
             }
         },
         "thanks": {
-            "name": "ghostwriter/wip",
-            "url": "https://github.com/ghostwriter/wip"
+            "name": "ghostwriter/scaffold",
+            "url": "https://github.com/ghostwriter/scaffold"
         }
     },
     "scripts": {

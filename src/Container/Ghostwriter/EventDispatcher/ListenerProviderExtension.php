@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Ghostwriter\Wip\Container\Ghostwriter\EventDispatcher;
+namespace Ghostwriter\Scaffold\Container\Ghostwriter\EventDispatcher;
 
 use Ghostwriter\Container\Interface\ContainerInterface;
 use Ghostwriter\Container\Interface\Service\ExtensionInterface;
 use Ghostwriter\EventDispatcher\Interface\ListenerProviderInterface;
-use Ghostwriter\Wip\Interface\WipConfigurationInterface;
+use Ghostwriter\Scaffold\Interface\ScaffoldConfigurationInterface;
 use Override;
 use Throwable;
 
@@ -29,9 +29,9 @@ final readonly class ListenerProviderExtension implements ExtensionInterface
     public function __invoke(ContainerInterface $container, object $service): void
     {
         assert($service instanceof ListenerProviderInterface);
-        $configuration = $container->get(WipConfigurationInterface::class);
+        $configuration = $container->get(ScaffoldConfigurationInterface::class);
 
-        assert($configuration instanceof WipConfigurationInterface);
+        assert($configuration instanceof ScaffoldConfigurationInterface);
         /** @var list<class-string> $listeners */
         foreach ($configuration->get('ghostwriter.event-dispatcher', []) as $event => $listeners) {
             foreach ($listeners as $listener) {

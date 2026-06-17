@@ -8,8 +8,8 @@ use Composer\InstalledVersions;
 use Ghostwriter\Container\Interface\ContainerInterface;
 use Ghostwriter\Container\Interface\Service\FactoryInterface;
 use Ghostwriter\Container\PsrContainer;
-use Ghostwriter\Wip\Container\Symfony\Console\ApplicationFactory;
-use Ghostwriter\Wip\Interface\WipConfigurationInterface;
+use Ghostwriter\Scaffold\Container\Symfony\Console\ApplicationFactory;
+use Ghostwriter\Scaffold\Interface\ScaffoldConfigurationInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 use Symfony\Component\Console\Application;
@@ -42,8 +42,8 @@ final class ApplicationFactoryTest extends AbstractTestCase
             ->willReturn($command)
             ->seal();
 
-        $configuration = $this->createMock(WipConfigurationInterface::class);
-        $consoleConfiguration = $this->createMock(WipConfigurationInterface::class);
+        $configuration = $this->createMock(ScaffoldConfigurationInterface::class);
+        $consoleConfiguration = $this->createMock(ScaffoldConfigurationInterface::class);
 
         $configuration->expects(self::once())
             ->method('wrap')
@@ -54,8 +54,8 @@ final class ApplicationFactoryTest extends AbstractTestCase
         $consoleConfiguration->expects(self::exactly(8))
             ->method('get')
             ->withParameterSetsInOrder(
-                ['name', 'Wip Console'],
-                ['package', 'ghostwriter/wip'],
+                ['name', 'Scaffold Console'],
+                ['package', 'ghostwriter/scaffold'],
                 ['auto_exit', false],
                 ['catch_errors', false],
                 ['catch_exceptions', false],
@@ -69,7 +69,7 @@ final class ApplicationFactoryTest extends AbstractTestCase
             )
             ->willReturnOnConsecutiveCalls(
                 'Test Console',
-                'ghostwriter/wip',
+                'ghostwriter/scaffold',
                 true,
                 true,
                 false,
@@ -84,7 +84,7 @@ final class ApplicationFactoryTest extends AbstractTestCase
         $container = $this->createMock(ContainerInterface::class);
         $container->expects(self::exactly(2))
             ->method('get')
-            ->withParameterSetsInOrder([WipConfigurationInterface::class], [PsrContainer::class])
+            ->withParameterSetsInOrder([ScaffoldConfigurationInterface::class], [PsrContainer::class])
             ->willReturnOnConsecutiveCalls($configuration, new PsrContainer($psrContainerDelegate))
             ->seal();
 
@@ -92,7 +92,7 @@ final class ApplicationFactoryTest extends AbstractTestCase
 
         self::assertInstanceOf(Application::class, $application);
         self::assertSame('Test Console', $application->getName());
-        self::assertSame(InstalledVersions::getPrettyVersion('ghostwriter/wip'), $application->getVersion());
+        self::assertSame(InstalledVersions::getPrettyVersion('ghostwriter/scaffold'), $application->getVersion());
         self::assertTrue($application->isAutoExitEnabled());
         self::assertFalse($application->areExceptionsCaught());
         self::assertTrue($application->isSingleCommand());

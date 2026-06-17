@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Ghostwriter\Wip\Container\Symfony\Console;
+namespace Ghostwriter\Scaffold\Container\Symfony\Console;
 
 use Composer\InstalledVersions;
 use Ghostwriter\Container\Interface\ContainerInterface;
 use Ghostwriter\Container\Interface\Service\FactoryInterface;
 use Ghostwriter\Container\PsrContainer;
-use Ghostwriter\Wip\Interface\WipConfigurationInterface;
+use Ghostwriter\Scaffold\Interface\ScaffoldConfigurationInterface;
 use Override;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
@@ -25,11 +25,11 @@ final readonly class ApplicationFactory implements FactoryInterface
     #[Override]
     public function __invoke(ContainerInterface $container): Application
     {
-        $consoleConfiguration = $container->get(WipConfigurationInterface::class)->wrap('ghostwriter.console');
+        $consoleConfiguration = $container->get(ScaffoldConfigurationInterface::class)->wrap('ghostwriter.console');
 
         $application = new Application(
-            $consoleConfiguration->get('name', 'Wip Console'),
-            InstalledVersions::getPrettyVersion($consoleConfiguration->get('package', 'ghostwriter/wip'))
+            $consoleConfiguration->get('name', 'Scaffold Console'),
+            InstalledVersions::getPrettyVersion($consoleConfiguration->get('package', 'ghostwriter/scaffold'))
         );
 
         $application->setAutoExit($consoleConfiguration->get('auto_exit', false));

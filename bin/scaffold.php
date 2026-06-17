@@ -3,10 +3,10 @@
 
 declare(strict_types=1);
 
-namespace Ghostwriter\Wip\Console;
+namespace Ghostwriter\Scaffold\Console;
 
 use ErrorException;
-use Ghostwriter\Wip\Foo;
+use Ghostwriter\Scaffold\Foo;
 
 use const DIRECTORY_SEPARATOR;
 use const STDERR;

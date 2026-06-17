@@ -7,8 +7,8 @@ namespace Tests\Unit\Container\Ghostwriter\EventDispatcher;
 use Ghostwriter\Container\Interface\ContainerInterface;
 use Ghostwriter\Container\Interface\Service\ExtensionInterface;
 use Ghostwriter\EventDispatcher\Interface\ListenerProviderInterface;
-use Ghostwriter\Wip\Container\Ghostwriter\EventDispatcher\ListenerProviderExtension;
-use Ghostwriter\Wip\Interface\WipConfigurationInterface;
+use Ghostwriter\Scaffold\Container\Ghostwriter\EventDispatcher\ListenerProviderExtension;
+use Ghostwriter\Scaffold\Interface\ScaffoldConfigurationInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Unit\AbstractTestCase;
 
@@ -24,7 +24,7 @@ final class ListenerProviderExtensionTest extends AbstractTestCase
 
     public function testInvokeRegistersConfiguredListeners(): void
     {
-        $configuration = $this->createMock(WipConfigurationInterface::class);
+        $configuration = $this->createMock(ScaffoldConfigurationInterface::class);
         $configuration->expects(self::once())
             ->method('get')
             ->with('ghostwriter.event-dispatcher', [])
@@ -39,7 +39,7 @@ final class ListenerProviderExtensionTest extends AbstractTestCase
         $container = $this->createMock(ContainerInterface::class);
         $container->expects(self::once())
             ->method('get')
-            ->with(WipConfigurationInterface::class)
+            ->with(ScaffoldConfigurationInterface::class)
             ->willReturn($configuration)
             ->seal();
 
