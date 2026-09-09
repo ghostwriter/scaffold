@@ -3119,12 +3119,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "5dee2598c5e86cf44f2adb9dc19e8461538f8dc6"
+                "reference": "263e1a52572f452bed867554b2ccd8024877bc54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/5dee2598c5e86cf44f2adb9dc19e8461538f8dc6",
-                "reference": "5dee2598c5e86cf44f2adb9dc19e8461538f8dc6",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/263e1a52572f452bed867554b2ccd8024877bc54",
+                "reference": "263e1a52572f452bed867554b2ccd8024877bc54",
                 "shasum": ""
             },
             "require": {
@@ -3173,26 +3173,18 @@
                 "ext-zend-opcache": "*",
                 "ext-zip": "*",
                 "ext-zlib": "*",
-                "mockery/mockery": "^1.6.12",
-                "php": "~8.4.0 || ~8.5.0",
-                "phpunit/phpunit": "^13.1.7",
-                "symfony/var-dumper": "^8.0.8"
+                "php": "~8.4.0 || ~8.5.0 || ~8.6.0"
             },
             "conflict": {
                 "pestphp/pest": "*"
             },
+            "require-dev": {
+                "boundwize/structarmed": "^0.17.2",
+                "ghostwriter/phpunit-assertions": "^0.1.1",
+                "mockery/mockery": "^1.6.15",
+                "phpunit/phpunit": "^13.3.3"
+            },
             "default-branch": true,
-            "bin": [
-                "tools/phar/composer-normalize",
-                "tools/phar/composer-require-checker",
-                "tools/phar/composer-unused",
-                "tools/phar/infection",
-                "tools/phar/phive",
-                "tools/phar/phpactor",
-                "tools/phar/phpbench",
-                "tools/phar/phpdocumentor",
-                "tools/phar/psalm"
-            ],
             "type": "library",
             "extra": {
                 "thanks": {
@@ -3236,9 +3228,13 @@
                 {
                     "url": "https://github.com/sponsors/ghostwriter",
                     "type": "github"
+                },
+                {
+                    "url": "https://paypal.me/codepoet",
+                    "type": "paypal"
                 }
             ],
-            "time": "2026-04-20T19:40:26+00:00"
+            "time": "2026-09-09T16:31:38+00:00"
         },
         {
             "name": "ghostwriter/phpunit-assertions",
@@ -5343,93 +5339,6 @@
                 }
             ],
             "time": "2024-10-20T05:08:20+00:00"
-        },
-        {
-            "name": "symfony/var-dumper",
-            "version": "v8.1.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "3783365b58972f4779254d98372af80fbf15e170"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/3783365b58972f4779254d98372af80fbf15e170",
-                "reference": "3783365b58972f4779254d98372af80fbf15e170",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.4.1",
-                "symfony/polyfill-mbstring": "^1.0"
-            },
-            "conflict": {
-                "symfony/console": "<7.4",
-                "symfony/error-handler": "<7.4"
-            },
-            "require-dev": {
-                "symfony/console": "^7.4|^8.0",
-                "symfony/http-kernel": "^7.4|^8.0",
-                "symfony/process": "^7.4|^8.0",
-                "symfony/uid": "^7.4|^8.0",
-                "twig/twig": "^3.12|^4.0"
-            },
-            "bin": [
-                "Resources/bin/var-dump-server"
-            ],
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "Resources/functions/dump.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Component\\VarDumper\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Provides mechanisms for walking through any arbitrary PHP variable",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "debug",
-                "dump"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v8.1.6"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nicolas-grekas",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-30T20:10:55+00:00"
         },
         {
             "name": "theseer/tokenizer",
